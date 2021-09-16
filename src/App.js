@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <div>
-      <MainHeader/>
+      <MainHeader />
 
       <NewMood onAddNewMood={addNewMoodHandler} />
 

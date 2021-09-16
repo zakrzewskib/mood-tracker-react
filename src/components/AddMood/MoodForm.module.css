@@ -1,0 +1,27 @@
+.new-mood-main-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  width: 90%;
+  margin: 0 auto;
+
+  font-size: 1.6rem;
+}
+
+.new-mood-main-form select {
+  font-family: 'Playfair Display', serif;
+}
+
+.green-mood {
+  color: green;
+}
+
+.new-mood-form-section {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.new-mood--actions {
+  text-align: center;
+}
