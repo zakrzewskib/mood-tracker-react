@@ -1,13 +1,11 @@
-function App() {
+import MainHeader from './components/UI/MainHeader';
+
+const App = () => {
   return (
     <div>
-      <header>
-        <h1 style={{ fontSize: '5.2rem', textAlign: 'center' }}>
-          Mood Tracker
-        </h1>
-      </header>
+      <MainHeader content="Mood Tracker" />
     </div>
   );
-}
+};
 
 export default App;
