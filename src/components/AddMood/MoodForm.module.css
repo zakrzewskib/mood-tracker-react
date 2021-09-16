@@ -10,16 +10,42 @@
 }
 
 .new-mood-main-form select {
-  font-family: 'Playfair Display', serif;
+  /* appearance: none; */
 }
 
-.green-mood {
-  color: green;
+.new-mood-main-form select,
+.new-mood-main-form select option {
+  font-family: 'Playfair Display', serif;
+  font-size: inherit;
+  font-weight: 500;
+  background-color: #f9f4ed;
+  border: none;
+}
+
+.really-happy {
+  color: #ec6173;
+}
+
+.happy {
+  color: #f1ae4a;
+}
+
+.ok {
+  color: #6964ff;
+}
+
+.sad {
+  color: #51a350;
+}
+
+.really-sad {
+  color: #bd63be;
 }
 
 .new-mood-form-section {
   display: flex;
   gap: 0.8rem;
+  align-items: center;
 }
 
 .new-mood--actions {

@@ -4,7 +4,7 @@ import classes from './MoodForm.module.css';
 
 const MoodForm = (props) => {
   const [enteredMood, setEnteredMood] = useState('happy');
-  const secondOptionSelected = true;
+  const [selectedOption, setSelectedOption] = useState('happy');
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -14,6 +14,7 @@ const MoodForm = (props) => {
 
   const moodChangeHandler = (event) => {
     setEnteredMood(event.target.value);
+    setSelectedOption(event.target.value);
   };
 
   return (
@@ -24,11 +25,27 @@ const MoodForm = (props) => {
           name="mood-selector"
           id="mood-selector"
           onChange={moodChangeHandler}
-          className={secondOptionSelected ? classes['green-mood'] : ''}
+          className={classes[selectedOption]}
+          defaultValue={'happy'}
         >
-          <option value="happy">Happy 🙂</option>
-          <option value="sad" className={classes['green-mood']}>
+          <option value="really-happy" className={classes['really-happy']}>
+            Really Happy 😃
+          </option>
+
+          <option value="happy" className={classes['happy']}>
+            Happy 🙂
+          </option>
+
+          <option value="ok" className={classes['ok']}>
+            Ok 😑
+          </option>
+
+          <option value="sad" className={classes['sad']}>
             Sad 🙁
+          </option>
+
+          <option value="really-sad" className={classes['really-sad']}>
+            Really sad 😢
           </option>
         </select>
       </div>
