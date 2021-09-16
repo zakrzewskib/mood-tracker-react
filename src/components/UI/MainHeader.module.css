@@ -1,12 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 
-.heading-primary {
-  font-family: 'Parisienne', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 
-  font-size: 6.4rem;
+.heading-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+
+  font-family: 'Dancing Script', cursive;
+
+  letter-spacing: -0.4rem;
 
   margin-bottom: 3.2rem;
-  margin-top: 3.2rem;
+  margin-top: 1.2rem;
 
   text-align: center;
+}
+
+.heading-primary--first-word {
+  font-size: 7.4rem;
+  font-weight: 700;
+}
+
+.heading-primary--second-word {
+  font-size: 5.4rem;
+  font-weight: 500;
+  color: #d598a0;
 }

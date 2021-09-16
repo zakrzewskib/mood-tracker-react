@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <div>
-      <MainHeader content="Mood Tracker" />
+      <MainHeader/>
 
       <NewMood onAddNewMood={addNewMoodHandler} />
 
