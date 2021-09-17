@@ -5,7 +5,40 @@ import Moods from './components/Moods/Moods';
 import NewMood from './components/AddMood/NewMood';
 
 const App = () => {
-  const [moods, setMoods] = useState([]);
+  const SAMPLE_DATA = [
+    {
+      mood: '🙂',
+      date: '2021-09-17',
+      comment: 'I felt happy that day',
+      id: Math.random().toString(),
+    },
+    {
+      mood: '🙂',
+      date: '2021-09-17',
+      comment: 'I felt happy that day',
+      id: Math.random().toString(),
+    },
+    {
+      mood: '🙂',
+      date: '2021-09-17',
+      comment: 'I felt happy that day',
+      id: Math.random().toString(),
+    },
+    {
+      mood: '🙂',
+      date: '2021-09-17',
+      comment: 'I felt happy that day',
+      id: Math.random().toString(),
+    },
+    {
+      mood: '🙂',
+      date: '2021-09-17',
+      comment: 'I felt happy that day',
+      id: Math.random().toString(),
+    },
+  ];
+
+  const [moods, setMoods] = useState(SAMPLE_DATA);
 
   const addNewMoodHandler = (mood) => {
     console.log(mood);
