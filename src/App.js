@@ -7,40 +7,23 @@ import NewMood from './components/AddMood/NewMood';
 import MonthTracker from './components/Charts/MonthTracker';
 
 const App = () => {
-  const SAMPLE_DATA = [
-    // {
-    //   mood: '🙂',
-    //   date: new Date(),
-    //   comment: 'I felt happy that day',
-    //   id: Math.random().toString(),
-    // },
-    // {
-    //   mood: '🙂',
-    //   date: new Date(),
-    //   comment: 'I felt happy that day',
-    //   id: Math.random().toString(),
-    // },
-    // {
-    //   mood: '🙂',
-    //   date: new Date(),
-    //   comment: 'I felt happy that day',
-    //   id: Math.random().toString(),
-    // },
-    // {
-    //   mood: '🙂',
-    //   date: new Date(),
-    //   comment: 'I felt happy that day',
-    //   id: Math.random().toString(),
-    // },
-    // {
-    //   mood: '🙂',
-    //   date: new Date(),
-    //   comment: 'I felt happy that day',
-    //   id: Math.random().toString(),
-    // },
-  ];
+  const [number, setNumber] = useState(0);
+
+  const SAMPLE_DATA = [];
 
   const [moods, setMoods] = useState(SAMPLE_DATA);
+
+  const starterMoods = [];
+
+  for (let i = 1; i <= 31; i++) {
+    starterMoods.push({
+      dayNumber: i,
+      mood: 'undefined',
+      id: Math.random().toString(),
+    });
+  }
+
+  const [moodsForTracker, setMoodsForTracker] = useState(starterMoods);
 
   const addNewMoodHandler = (mood) => {
     // if (moods.length > 0) {
@@ -53,6 +36,21 @@ const App = () => {
       console.log('Do you want to replace mood in that day?');
     }
     setMoods((prevMoods) => [...prevMoods, mood]);
+
+    let index = moodsForTracker.findIndex(
+      (item) => item.dayNumber === mood.date.getDate()
+    );
+
+    let updatedMoods = [...moodsForTracker];
+
+    let newItem = { ...moodsForTracker[index] };
+
+    newItem.dayNumber = 50;
+
+    updatedMoods[index] = newItem;
+
+    setMoodsForTracker(updatedMoods);
+    setNumber((number) => number + 1);
   };
 
   return (
@@ -66,7 +64,7 @@ const App = () => {
           <Moods items={moods} />
         </div>
 
-        <MonthTracker items={moods} />
+        <MonthTracker moods={moodsForTracker} number={number} />
       </div>
     </div>
   );

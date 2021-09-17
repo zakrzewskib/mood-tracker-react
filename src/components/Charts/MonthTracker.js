@@ -1,9 +1,34 @@
+import React, { useState } from 'react';
+
 import classes from './MonthTracker.module.css';
 
 import MonthTrackerItem from './MonthTrackerItem';
 
 const MonthTracker = (props) => {
-  let number = 1;
+  const starterMoods = [];
+
+  for (let i = 1; i <= 31; i++) {
+    starterMoods.push({
+      dayNumber: i,
+      mood: 'undefined',
+      id: Math.random().toString(),
+    });
+  }
+
+  // let updatedMoods;
+
+  // const updateMoods = (newMood) => {
+  //   if (newMood) {
+  //     let index = moods.findIndex(
+  //       (item) => item.dayNumber === newMood.date.getDate()
+  //     );
+  //     updatedMoods = [...moods];
+  //     updatedMoods[index].mood = newMood.mood;
+  //     setMoods(updatedMoods);
+  //   }
+  // };
+
+  console.log(props.moods);
 
   return (
     <div className={classes['month-tracker']}>
@@ -14,8 +39,14 @@ const MonthTracker = (props) => {
       <div className={classes['week-day']}>Fri</div>
       <div className={classes['week-day']}>Sat</div>
       <div className={classes['week-day']}>Sun</div>
-      {props.items.map((mood) => (
-        <MonthTrackerItem key={mood.id} mood={mood} number={number++} />
+      <div>{props.number}</div>
+
+      {props.moods.map((mood) => (
+        <MonthTrackerItem
+          key={mood.id}
+          mood={mood.mood}
+          number={mood.dayNumber}
+        />
       ))}
     </div>
   );

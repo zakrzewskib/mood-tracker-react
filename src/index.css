@@ -38,6 +38,10 @@ body {
   margin-left: 4.8rem;
 }
 
+.undefined-background {
+  background-color: transparent;
+}
+
 .😃 {
   color: #ec6173;
 }
