@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 import classes from './MonthTracker.module.css';
 
 import MonthTrackerItem from './MonthTrackerItem';

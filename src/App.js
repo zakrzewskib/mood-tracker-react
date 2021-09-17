@@ -7,31 +7,35 @@ import NewMood from './components/AddMood/NewMood';
 import MonthTracker from './components/Charts/MonthTracker';
 
 const App = () => {
-  const SAMPLE_DATA = [];
+  const sampleMoodsData = [];
 
-  const [moods, setMoods] = useState(SAMPLE_DATA);
+  const defineStartedMoods = () => {
+    for (let i = 1; i <= 31; i++) {
+      starterMoods.push({
+        dayNumber: i,
+        mood: 'undefined',
+        id: Math.random().toString(),
+      });
+    }
+  };
+
+  const [moods, setMoods] = useState(sampleMoodsData);
 
   const starterMoods = [];
-
-  for (let i = 1; i <= 31; i++) {
-    starterMoods.push({
-      dayNumber: i,
-      mood: 'undefined',
-      id: Math.random().toString(),
-    });
-  }
+  defineStartedMoods();
 
   const [moodsForTracker, setMoodsForTracker] = useState(starterMoods);
 
-  const addNewMoodHandler = (mood) => {
+  const checkIfEnteredSameDate = (mood) => {
     if (
       moods.filter((e) => e.date.toISOString() === mood.date.toISOString())
         .length > 0
     ) {
       console.log('Do you want to replace mood in that day?');
     }
-    setMoods((prevMoods) => [...prevMoods, mood]);
+  };
 
+  const changeColorInTracker = (mood) => {
     let index = moodsForTracker.findIndex(
       (item) => item.dayNumber === mood.date.getDate()
     );
@@ -45,6 +49,14 @@ const App = () => {
     updatedMoods[index] = newItem;
 
     setMoodsForTracker(updatedMoods);
+  };
+
+  const addNewMoodHandler = (mood) => {
+    checkIfEnteredSameDate(mood);
+
+    setMoods((prevMoods) => [...prevMoods, mood]);
+
+    changeColorInTracker(mood);
   };
 
   return (
