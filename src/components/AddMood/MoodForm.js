@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import classes from './MoodForm.module.css';
+import Button from '../UI/Button';
 
 const MoodForm = (props) => {
   const [enteredMood, setEnteredMood] = useState('happy');
@@ -51,7 +52,7 @@ const MoodForm = (props) => {
       </div>
 
       <div className={classes['new-mood--actions']}>
-        <button type="submit">Add new Mood</button>
+        <Button type="submit">Add new mood</Button>
       </div>
     </form>
   );
