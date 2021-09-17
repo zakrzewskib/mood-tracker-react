@@ -7,8 +7,6 @@ import NewMood from './components/AddMood/NewMood';
 import MonthTracker from './components/Charts/MonthTracker';
 
 const App = () => {
-  const [number, setNumber] = useState(0);
-
   const SAMPLE_DATA = [];
 
   const [moods, setMoods] = useState(SAMPLE_DATA);
@@ -26,9 +24,6 @@ const App = () => {
   const [moodsForTracker, setMoodsForTracker] = useState(starterMoods);
 
   const addNewMoodHandler = (mood) => {
-    // if (moods.length > 0) {
-    //   console.log(mood.date.toISOString() === moods[0].date.toISOString());
-    // }
     if (
       moods.filter((e) => e.date.toISOString() === mood.date.toISOString())
         .length > 0
@@ -45,12 +40,11 @@ const App = () => {
 
     let newItem = { ...moodsForTracker[index] };
 
-    newItem.dayNumber = 50;
+    newItem.dayNumber = 30;
 
     updatedMoods[index] = newItem;
 
     setMoodsForTracker(updatedMoods);
-    setNumber((number) => number + 1);
   };
 
   return (
@@ -64,7 +58,7 @@ const App = () => {
           <Moods items={moods} />
         </div>
 
-        <MonthTracker moods={moodsForTracker} number={number} />
+        <MonthTracker moods={moodsForTracker} />
       </div>
     </div>
   );
