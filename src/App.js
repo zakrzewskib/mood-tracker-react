@@ -41,6 +41,15 @@ const App = () => {
   const [moods, setMoods] = useState(SAMPLE_DATA);
 
   const addNewMoodHandler = (mood) => {
+    // if (moods.length > 0) {
+    //   console.log(mood.date.toISOString() === moods[0].date.toISOString());
+    // }
+    if (
+      moods.filter((e) => e.date.toISOString() === mood.date.toISOString())
+        .length > 0
+    ) {
+      console.log('Do you want to replace mood in that day?');
+    }
     setMoods((prevMoods) => [...prevMoods, mood]);
   };
 
