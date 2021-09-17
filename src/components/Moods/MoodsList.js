@@ -1,8 +1,10 @@
 import MoodItem from './MoodItem';
 
+import classes from './MoodsList.module.css';
+
 const MoodsList = (props) => {
   return (
-    <ul>
+    <ul className={`${classes['moods-list']} container`}>
       {props.items.map((mood) => {
         return (
           <MoodItem

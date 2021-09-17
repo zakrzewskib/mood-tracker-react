@@ -34,7 +34,10 @@ const MoodForm = (props) => {
   };
 
   return (
-    <form onSubmit={submitHandler} className={classes['new-mood-main-form']}>
+    <form
+      onSubmit={submitHandler}
+      className={`${classes['new-mood-main-form']} container`}
+    >
       <div className={classes['new-mood-form-section']}>
         <label htmlFor="mood-selector">Select your mood:</label>
         <select

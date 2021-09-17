@@ -2,10 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-
-  width: 90%;
-  margin: 0 auto;
-
   font-size: 2.4rem;
 }
 
@@ -30,7 +26,7 @@
 }
 
 .new-mood--actions {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .really-happy {
