@@ -1,7 +1,6 @@
 import classes from './MonthTrackerItem.module.css';
 
 const MonthTrackerItem = (props) => {
-  console.log(props);
   return (
     <div
       className={`${classes['month-tracker-item']} ${
