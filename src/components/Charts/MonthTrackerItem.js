@@ -7,7 +7,7 @@ const MonthTrackerItem = (props) => {
         props.mood.color + '-background'
       }`}
     >
-      <div>{props.number}</div>
+      <div className={classes['day-number']}>{props.number}</div>
     </div>
   );
 };
