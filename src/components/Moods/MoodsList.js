@@ -1,8 +1,10 @@
+import MoodItem from './MoodItem';
+
 const MoodsList = (props) => {
   return (
     <ul>
       {props.items.map((mood) => {
-        return <p>{mood}</p>;
+        return <MoodItem key={mood.id} mood={mood.mood} />;
       })}
     </ul>
   );

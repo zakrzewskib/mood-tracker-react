@@ -14,8 +14,14 @@ const MoodForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(enteredDate);
-    props.onSaveNewMood(enteredMood);
+
+    const mood = {
+      mood: enteredMood,
+      date: enteredDate,
+      id: Math.random().toString(),
+    };
+
+    props.onSaveNewMood(mood);
   };
 
   const dateChangeHandler = (event) => {
