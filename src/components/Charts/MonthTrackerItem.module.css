@@ -1,0 +1,7 @@
+.month-tracker-item {
+  width: 8rem;
+  height: 8rem;
+
+  border: 1px solid black;
+  margin: 0 -1px -1px 0;
+}

@@ -4,6 +4,8 @@ import MainHeader from './components/UI/MainHeader';
 import Moods from './components/Moods/Moods';
 import NewMood from './components/AddMood/NewMood';
 
+import MonthTracker from './components/Charts/MonthTracker';
+
 const App = () => {
   const SAMPLE_DATA = [
     // {
@@ -57,9 +59,15 @@ const App = () => {
     <div>
       <MainHeader />
 
-      <NewMood onAddNewMood={addNewMoodHandler} />
+      <div className="outside-container">
+        <div>
+          <NewMood onAddNewMood={addNewMoodHandler} />
 
-      <Moods items={moods} />
+          <Moods items={moods} />
+        </div>
+
+        <MonthTracker items={moods} />
+      </div>
     </div>
   );
 };

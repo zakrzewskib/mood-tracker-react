@@ -27,27 +27,53 @@ body {
   background-color: #f9f4ed;
 }
 
+.outside-container {
+  display: flex;
+  width: 100%;
+}
+
 .container {
-  width: 90%;
-  margin: 0 auto;
+  /* width: 90%; */
+  /* margin: 0 auto; */
+  margin-left: 4.8rem;
 }
 
 .😃 {
   color: #ec6173;
 }
 
+.😃-background {
+  background-color: #ec6173;
+}
+
 .🙂 {
   color: #f1ae4a;
+}
+
+.🙂-background {
+  background-color: #f1ae4a;
 }
 
 .😑 {
   color: #6964ff;
 }
 
+.😑-background {
+  background-color: #6964ff;
+}
+
 .🙁 {
   color: #51a350;
 }
 
+.🙁-background {
+  background-color: #51a350;
+}
+
 .😢 {
   color: #bd63be;
+}
+
+.😢-background {
+  background-color: #bd63be;
 }
