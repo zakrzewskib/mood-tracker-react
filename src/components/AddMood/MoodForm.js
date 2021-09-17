@@ -9,6 +9,7 @@ const MoodForm = (props) => {
 
   const [enteredMood, setEnteredMood] = useState('happy');
   const [enteredDate, setEnteredDate] = useState(date);
+  const [enteredComment, setEnteredComment] = useState('');
 
   const [selectedOptionClass, setSelectedOptionClass] = useState('happy');
 
@@ -18,6 +19,7 @@ const MoodForm = (props) => {
     const mood = {
       mood: enteredMood,
       date: enteredDate,
+      comment: enteredComment,
       id: Math.random().toString(),
     };
 
@@ -26,6 +28,10 @@ const MoodForm = (props) => {
 
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
+  };
+
+  const commentChangeHandler = (event) => {
+    setEnteredComment(event.target.value);
   };
 
   const moodChangeHandler = (event) => {
@@ -87,6 +93,7 @@ const MoodForm = (props) => {
           cols="35"
           rows="1"
           placeholder="Add comment about your day (optional)"
+          onChange={commentChangeHandler}
         ></textarea>
       </div>
 

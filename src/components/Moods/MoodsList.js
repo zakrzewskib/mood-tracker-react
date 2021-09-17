@@ -11,7 +11,7 @@ const MoodsList = (props) => {
             key={mood.id}
             mood={mood.mood}
             date={mood.date}
-            comment={'test'}
+            comment={mood.comment}
           />
         );
       })}
