@@ -89,7 +89,6 @@ const MoodForm = (props) => {
       </div>
 
       <div className={classes['new-mood-form-section']}>
-        {/* <label htmlFor="comment">Add comment about your day (optional)</label> */}
         <textarea
           name="comment"
           id="comment"
