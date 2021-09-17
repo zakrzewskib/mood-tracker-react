@@ -12,6 +12,7 @@ const MoodsList = (props) => {
             mood={mood.mood}
             date={mood.date}
             comment={mood.comment}
+            color={mood.color}
           />
         );
       })}

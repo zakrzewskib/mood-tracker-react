@@ -38,23 +38,3 @@
 .new-mood-form-section:last-child {
   margin-bottom: 3.2rem;
 }
-
-.really-happy {
-  color: #ec6173;
-}
-
-.happy {
-  color: #f1ae4a;
-}
-
-.ok {
-  color: #6964ff;
-}
-
-.sad {
-  color: #51a350;
-}
-
-.really-sad {
-  color: #bd63be;
-}

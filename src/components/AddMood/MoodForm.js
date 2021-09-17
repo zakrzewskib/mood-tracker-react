@@ -7,11 +7,11 @@ const MoodForm = (props) => {
   let today = new Date();
   const date = today.toISOString().substr(0, 10);
 
-  const [enteredMood, setEnteredMood] = useState('happy');
+  const [enteredMood, setEnteredMood] = useState('🙂');
   const [enteredDate, setEnteredDate] = useState(date);
   const [enteredComment, setEnteredComment] = useState('');
 
-  const [selectedOptionClass, setSelectedOptionClass] = useState('happy');
+  const [selectedOptionClass, setSelectedOptionClass] = useState('🙂');
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -20,6 +20,7 @@ const MoodForm = (props) => {
       mood: enteredMood,
       date: new Date(enteredDate),
       comment: enteredComment,
+      color: selectedOptionClass,
       id: Math.random().toString(),
     };
 
@@ -50,26 +51,26 @@ const MoodForm = (props) => {
           name="mood-selector"
           id="mood-selector"
           onChange={moodChangeHandler}
-          className={classes[selectedOptionClass]}
-          defaultValue={'happy'}
+          className={selectedOptionClass}
+          defaultValue={'🙂'}
         >
-          <option value="really-happy" className={classes['really-happy']}>
+          <option value="😃" className="😃">
             Really Happy 😃
           </option>
 
-          <option value="happy" className={classes['happy']}>
+          <option value="🙂" className="🙂">
             Happy 🙂
           </option>
 
-          <option value="ok" className={classes['ok']}>
+          <option value="😑" className="😑">
             Ok 😑
           </option>
 
-          <option value="sad" className={classes['sad']}>
+          <option value="🙁" className="🙁">
             Sad 🙁
           </option>
 
-          <option value="really-sad" className={classes['really-sad']}>
+          <option value="😢" className="😢">
             Really sad 😢
           </option>
         </select>

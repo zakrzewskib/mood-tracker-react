@@ -10,7 +10,10 @@ const MoodItem = (props) => {
       </div>
       <div className={classes['mood-description']}>
         <div>{props.mood}</div>
-        <div>{props.comment}</div>
+        <div className={`${classes['comment']} ${props.color}`}>
+          {' '}
+          {props.comment}
+        </div>
       </div>
     </li>
   );

@@ -6,42 +6,41 @@ import NewMood from './components/AddMood/NewMood';
 
 const App = () => {
   const SAMPLE_DATA = [
-    {
-      mood: '🙂',
-      date: new Date(),
-      comment: 'I felt happy that day',
-      id: Math.random().toString(),
-    },
-    {
-      mood: '🙂',
-      date: new Date(),
-      comment: 'I felt happy that day',
-      id: Math.random().toString(),
-    },
-    {
-      mood: '🙂',
-      date: new Date(),
-      comment: 'I felt happy that day',
-      id: Math.random().toString(),
-    },
-    {
-      mood: '🙂',
-      date: new Date(),
-      comment: 'I felt happy that day',
-      id: Math.random().toString(),
-    },
-    {
-      mood: '🙂',
-      date: new Date(),
-      comment: 'I felt happy that day',
-      id: Math.random().toString(),
-    },
+    // {
+    //   mood: '🙂',
+    //   date: new Date(),
+    //   comment: 'I felt happy that day',
+    //   id: Math.random().toString(),
+    // },
+    // {
+    //   mood: '🙂',
+    //   date: new Date(),
+    //   comment: 'I felt happy that day',
+    //   id: Math.random().toString(),
+    // },
+    // {
+    //   mood: '🙂',
+    //   date: new Date(),
+    //   comment: 'I felt happy that day',
+    //   id: Math.random().toString(),
+    // },
+    // {
+    //   mood: '🙂',
+    //   date: new Date(),
+    //   comment: 'I felt happy that day',
+    //   id: Math.random().toString(),
+    // },
+    // {
+    //   mood: '🙂',
+    //   date: new Date(),
+    //   comment: 'I felt happy that day',
+    //   id: Math.random().toString(),
+    // },
   ];
 
   const [moods, setMoods] = useState(SAMPLE_DATA);
 
   const addNewMoodHandler = (mood) => {
-    console.log(mood);
     setMoods((prevMoods) => [...prevMoods, mood]);
   };
 
