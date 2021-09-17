@@ -41,6 +41,7 @@ const App = () => {
     let newItem = { ...moodsForTracker[index] };
 
     newItem.dayNumber = 30;
+    newItem.mood = mood.mood;
 
     updatedMoods[index] = newItem;
 
