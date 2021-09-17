@@ -14,7 +14,8 @@
 }
 
 .new-mood-main-form select,
-.new-mood-main-form select option {
+.new-mood-main-form select option,
+.new-mood-main-form input {
   font-family: 'Playfair Display', serif;
   font-size: inherit;
   font-weight: 500;

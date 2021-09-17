@@ -4,18 +4,27 @@ import classes from './MoodForm.module.css';
 import Button from '../UI/Button';
 
 const MoodForm = (props) => {
+  let today = new Date();
+  const date = today.toISOString().substr(0, 10);
+
   const [enteredMood, setEnteredMood] = useState('happy');
-  const [selectedOption, setSelectedOption] = useState('happy');
+  const [enteredDate, setEnteredDate] = useState(date);
+
+  const [selectedOptionClass, setSelectedOptionClass] = useState('happy');
 
   const submitHandler = (event) => {
     event.preventDefault();
-
+    console.log(enteredDate);
     props.onSaveNewMood(enteredMood);
+  };
+
+  const dateChangeHandler = (event) => {
+    setEnteredDate(event.target.value);
   };
 
   const moodChangeHandler = (event) => {
     setEnteredMood(event.target.value);
-    setSelectedOption(event.target.value);
+    setSelectedOptionClass(event.target.value);
   };
 
   return (
@@ -26,7 +35,7 @@ const MoodForm = (props) => {
           name="mood-selector"
           id="mood-selector"
           onChange={moodChangeHandler}
-          className={classes[selectedOption]}
+          className={classes[selectedOptionClass]}
           defaultValue={'happy'}
         >
           <option value="really-happy" className={classes['really-happy']}>
@@ -49,6 +58,11 @@ const MoodForm = (props) => {
             Really sad 😢
           </option>
         </select>
+      </div>
+
+      <div className={classes['new-mood-form-section']}>
+        <label htmlFor="">Select date:</label>
+        <input type="date" defaultValue={date} onChange={dateChangeHandler} />
       </div>
 
       <div className={classes['new-mood--actions']}>
