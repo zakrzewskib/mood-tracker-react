@@ -18,7 +18,7 @@ const MoodForm = (props) => {
 
     const mood = {
       mood: enteredMood,
-      date: enteredDate,
+      date: new Date(enteredDate),
       comment: enteredComment,
       id: Math.random().toString(),
     };

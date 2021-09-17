@@ -8,31 +8,31 @@ const App = () => {
   const SAMPLE_DATA = [
     {
       mood: '🙂',
-      date: '2021-09-17',
+      date: new Date(),
       comment: 'I felt happy that day',
       id: Math.random().toString(),
     },
     {
       mood: '🙂',
-      date: '2021-09-17',
+      date: new Date(),
       comment: 'I felt happy that day',
       id: Math.random().toString(),
     },
     {
       mood: '🙂',
-      date: '2021-09-17',
+      date: new Date(),
       comment: 'I felt happy that day',
       id: Math.random().toString(),
     },
     {
       mood: '🙂',
-      date: '2021-09-17',
+      date: new Date(),
       comment: 'I felt happy that day',
       id: Math.random().toString(),
     },
     {
       mood: '🙂',
-      date: '2021-09-17',
+      date: new Date(),
       comment: 'I felt happy that day',
       id: Math.random().toString(),
     },

@@ -1,0 +1,11 @@
+.date {
+  display: flex;
+  gap: 1.2rem;
+
+  font-weight: 500;
+}
+
+.date--month {
+  font-weight: 600;
+  color: #c08990;
+}
