@@ -24,6 +24,8 @@ const MoodForm = (props) => {
       id: Math.random().toString(),
     };
 
+    setEnteredComment('');
+
     props.onSaveNewMood(mood);
   };
 
@@ -95,6 +97,7 @@ const MoodForm = (props) => {
           rows="1"
           placeholder="Add comment about your day (optional)"
           onChange={commentChangeHandler}
+          value={enteredComment}
         ></textarea>
       </div>
 
