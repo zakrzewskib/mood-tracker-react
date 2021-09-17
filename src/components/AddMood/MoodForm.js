@@ -85,12 +85,12 @@ const MoodForm = (props) => {
           name="comment"
           id="comment"
           cols="35"
-          rows="2"
+          rows="1"
           placeholder="Add comment about your day (optional)"
         ></textarea>
       </div>
 
-      <div className={classes['new-mood--actions']}>
+      <div className={classes['new-mood-form-section']}>
         <Button type="submit">Add new mood</Button>
       </div>
     </form>

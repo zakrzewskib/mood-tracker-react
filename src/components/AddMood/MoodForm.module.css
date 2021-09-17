@@ -23,19 +23,20 @@
 .new-mood-main-form textarea {
   resize: none;
   font-style: italic;
+  padding-left: 2px;
 
-  overflow-x: hidden;
-  overflow-y: auto;
+  margin-bottom: 1.6rem;
 }
 
 .new-mood-form-section {
   display: flex;
   gap: 0.8rem;
   align-items: center;
+  /* margin-bottom: 0.8rem; */
 }
 
-.new-mood--actions {
-  /* text-align: center; */
+.new-mood-form-section:last-child {
+  margin-bottom: 3.2rem;
 }
 
 .really-happy {
