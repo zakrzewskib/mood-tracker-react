@@ -11,12 +11,21 @@
 
 .new-mood-main-form select,
 .new-mood-main-form select option,
-.new-mood-main-form input {
+.new-mood-main-form input,
+.new-mood-main-form textarea {
   font-family: 'Playfair Display', serif;
   font-size: inherit;
   font-weight: 500;
   background-color: #f9f4ed;
   border: none;
+}
+
+.new-mood-main-form textarea {
+  resize: none;
+  font-style: italic;
+
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .new-mood-form-section {

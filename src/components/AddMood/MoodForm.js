@@ -70,8 +70,24 @@ const MoodForm = (props) => {
       </div>
 
       <div className={classes['new-mood-form-section']}>
-        <label htmlFor="">Select date:</label>
-        <input type="date" defaultValue={date} onChange={dateChangeHandler} />
+        <label htmlFor="date">Select date:</label>
+        <input
+          id="date"
+          type="date"
+          defaultValue={date}
+          onChange={dateChangeHandler}
+        />
+      </div>
+
+      <div className={classes['new-mood-form-section']}>
+        {/* <label htmlFor="comment">Add comment about your day (optional)</label> */}
+        <textarea
+          name="comment"
+          id="comment"
+          cols="35"
+          rows="2"
+          placeholder="Add comment about your day (optional)"
+        ></textarea>
       </div>
 
       <div className={classes['new-mood--actions']}>
