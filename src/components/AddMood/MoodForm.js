@@ -46,9 +46,10 @@ const MoodForm = (props) => {
       ) {
         setError({
           title: 'You decided to replace mood at:',
-          message: `${
-            mood.date.getMonth() + 1
-          } ${mood.date.getDate()} ${mood.date.getFullYear()}`,
+          // message: `${
+          //   mood.date.getMonth() + 1
+          // } ${mood.date.getDate()} ${mood.date.getFullYear()}`,
+          date: mood.date,
         });
 
         setEnteredComment('');
@@ -81,6 +82,7 @@ const MoodForm = (props) => {
           title={error.title}
           message={error.message}
           onConfirm={errorHandler}
+          date={error.date}
         />
       )}
 

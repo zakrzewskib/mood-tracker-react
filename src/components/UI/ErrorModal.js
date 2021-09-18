@@ -1,6 +1,7 @@
 import classes from './ErrorModal.module.css';
 
 import Button from './Button';
+import Date from './Date';
 
 const ErrorModal = (props) => {
   const confirm = () => {
@@ -16,8 +17,10 @@ const ErrorModal = (props) => {
         </header>
 
         <div className={classes.content}>
-          {/* {props.showDate && } */}
-          <p>{props.message}</p>
+          {props.date && (
+            <Date date={props.date} className={classes['error-date']} />
+          )}
+          {!props.date && <p>{props.message}</p>}
         </div>
         <footer className={classes.actions}>
           <Button onClick={confirm}>Okay</Button>

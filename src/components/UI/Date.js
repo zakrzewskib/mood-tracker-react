@@ -6,7 +6,7 @@ const Date = (props) => {
   const year = props.date.getFullYear();
 
   return (
-    <div className={classes['date']}>
+    <div className={`${classes['date']} ${props.className}`}>
       <div className={classes['date--month']}>{month}</div>
       <div className={classes['date--year']}>{year}</div>
       <div className={classes['date--day']}>{day}</div>
