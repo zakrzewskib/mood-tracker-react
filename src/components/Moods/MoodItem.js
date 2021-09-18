@@ -1,4 +1,4 @@
-import Date from '../UI/MyDate';
+import Date from '../UI/Date';
 
 import classes from './MoodItem.module.css';
 

@@ -16,6 +16,7 @@ const ErrorModal = (props) => {
         </header>
 
         <div className={classes.content}>
+          {/* {props.showDate && } */}
           <p>{props.message}</p>
         </div>
         <footer className={classes.actions}>
