@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 
 import classes from './MoodForm.module.css';
 import Button from '../UI/Button';
+import ErrorModal from '../UI/ErrorModal';
 
 const MoodForm = (props) => {
+  const [error, setError] = useState();
+  const [dates, setDates] = useState([]);
+
+  const errorHandler = (option) => {
+    setError(null);
+  };
+
   const defaultOption = '🙂';
   const date = new Date().toISOString().substr(0, 10);
 
@@ -13,6 +21,20 @@ const MoodForm = (props) => {
 
   const [enteredDate, setEnteredDate] = useState(date);
   const [enteredComment, setEnteredComment] = useState('');
+
+  const setSameDateError = (mood) => {
+    console.log(mood.date);
+    console.log(dates);
+    if (
+      dates.filter((e) => e.toISOString() === mood.date.toISOString()).length >
+      0
+    ) {
+      setError({
+        title: 'You already defined mood in that day!',
+        message: 'Do you want to replace mood in that day?',
+      });
+    }
+  };
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -24,6 +46,9 @@ const MoodForm = (props) => {
       color: selectedOptionClass,
       id: Math.random().toString(),
     };
+
+    setDates((prevDates) => [...prevDates, mood.date]);
+    setSameDateError(mood);
 
     setEnteredComment('');
 
@@ -45,69 +70,79 @@ const MoodForm = (props) => {
   };
 
   return (
-    <form
-      onSubmit={submitHandler}
-      className={`${classes['new-mood-main-form']} container`}
-    >
-      <div className={classes['new-mood-form-section']}>
-        <label htmlFor="mood-selector">Select your mood:</label>
-
-        <select
-          name="mood-selector"
-          id="mood-selector"
-          onChange={moodChangeHandler}
-          className={selectedOptionClass}
-          defaultValue={defaultOption}
-        >
-          <option value="😃" className="😃">
-            Really Happy 😃
-          </option>
-
-          <option value="🙂" className="🙂">
-            Happy 🙂
-          </option>
-
-          <option value="😑" className="😑">
-            Ok 😑
-          </option>
-
-          <option value="🙁" className="🙁">
-            Sad 🙁
-          </option>
-
-          <option value="😢" className="😢">
-            Really sad 😢
-          </option>
-        </select>
-      </div>
-
-      <div className={classes['new-mood-form-section']}>
-        <label htmlFor="date">Select date:</label>
-
-        <input
-          id="date"
-          type="date"
-          defaultValue={date}
-          onChange={dateChangeHandler}
+    <div>
+      {error && (
+        <ErrorModal
+          title={error.title}
+          message={error.message}
+          onConfirm={errorHandler}
         />
-      </div>
+      )}
 
-      <div className={classes['new-mood-form-section']}>
-        <textarea
-          name="comment"
-          id="comment"
-          cols="33"
-          rows="1"
-          placeholder="Add comment about your day (optional)"
-          onChange={commentChangeHandler}
-          value={enteredComment}
-        ></textarea>
-      </div>
+      <form
+        onSubmit={submitHandler}
+        className={`${classes['new-mood-main-form']} container`}
+      >
+        <div className={classes['new-mood-form-section']}>
+          <label htmlFor="mood-selector">Select your mood:</label>
 
-      <div className={classes['new-mood-form-section']}>
-        <Button type="submit">Add new mood</Button>
-      </div>
-    </form>
+          <select
+            name="mood-selector"
+            id="mood-selector"
+            onChange={moodChangeHandler}
+            className={selectedOptionClass}
+            defaultValue={defaultOption}
+          >
+            <option value="😃" className="😃">
+              Really Happy 😃
+            </option>
+
+            <option value="🙂" className="🙂">
+              Happy 🙂
+            </option>
+
+            <option value="😑" className="😑">
+              Ok 😑
+            </option>
+
+            <option value="🙁" className="🙁">
+              Sad 🙁
+            </option>
+
+            <option value="😢" className="😢">
+              Really sad 😢
+            </option>
+          </select>
+        </div>
+
+        <div className={classes['new-mood-form-section']}>
+          <label htmlFor="date">Select date:</label>
+
+          <input
+            id="date"
+            type="date"
+            defaultValue={date}
+            onChange={dateChangeHandler}
+          />
+        </div>
+
+        <div className={classes['new-mood-form-section']}>
+          <textarea
+            name="comment"
+            id="comment"
+            cols="33"
+            rows="1"
+            placeholder="Add comment about your day (optional)"
+            onChange={commentChangeHandler}
+            value={enteredComment}
+          ></textarea>
+        </div>
+
+        <div className={classes['new-mood-form-section']}>
+          <Button type="submit">Add new mood</Button>
+        </div>
+      </form>
+    </div>
   );
 };
 
