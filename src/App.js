@@ -14,12 +14,16 @@ const App = () => {
       if (i === 1 || i === 2 || i === 3) {
         starterMoods.push({
           dayNumber: '',
+          monthNumber: '',
+          yearNumber: '',
           mood: 'undefined',
           id: Math.random().toString(),
         });
       } else {
         starterMoods.push({
           dayNumber: i - 3,
+          monthNumber: 9,
+          yearNumber: 2021,
           mood: 'undefined',
           id: Math.random().toString(),
         });
@@ -45,7 +49,10 @@ const App = () => {
 
   const changeColorInTracker = (mood) => {
     let index = moodsForTracker.findIndex(
-      (item) => item.dayNumber === mood.date.getDate()
+      (item) =>
+        item.dayNumber === mood.date.getDate() &&
+        item.monthNumber === mood.date.getMonth() + 1 &&
+        item.yearNumber === mood.date.getFullYear()
     );
 
     let updatedMoods = [...moodsForTracker];
