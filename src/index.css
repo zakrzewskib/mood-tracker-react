@@ -29,7 +29,9 @@ body {
 
 .outside-container {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
+  justify-content: center;
+  gap: 3.2rem;
 }
 
 .container {

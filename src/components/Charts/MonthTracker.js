@@ -10,7 +10,7 @@ const MonthTracker = (props) => {
         <span className={classes['month-name']}>September</span> 2021
       </h2>
       <div className={classes['month-tracker']}>
-        <div className={classes['week-day'] + ' ' + '😃'}>Sun</div>
+        <div className={classes['week-day'] + ' 😃'}>Sun</div>
         <div className={classes['week-day']}>Mon</div>
         <div className={classes['week-day']}>Tues</div>
         <div className={classes['week-day']}>Wed</div>
