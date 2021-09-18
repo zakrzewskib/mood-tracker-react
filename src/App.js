@@ -9,20 +9,28 @@ import MonthTracker from './components/Charts/MonthTracker';
 const App = () => {
   const sampleMoodsData = [];
 
-  const defineStartedMoods = () => {
-    for (let i = 1; i <= 31; i++) {
-      starterMoods.push({
-        dayNumber: i,
-        mood: 'undefined',
-        id: Math.random().toString(),
-      });
+  const defineStartedMoodsSeptember2021 = () => {
+    for (let i = 1; i <= 31 + 2; i++) {
+      if (i === 1 || i === 2 || i === 3) {
+        starterMoods.push({
+          dayNumber: '',
+          mood: 'undefined',
+          id: Math.random().toString(),
+        });
+      } else {
+        starterMoods.push({
+          dayNumber: i - 3,
+          mood: 'undefined',
+          id: Math.random().toString(),
+        });
+      }
     }
   };
 
   const [moods, setMoods] = useState(sampleMoodsData);
 
   const starterMoods = [];
-  defineStartedMoods();
+  defineStartedMoodsSeptember2021();
 
   const [moodsForTracker, setMoodsForTracker] = useState(starterMoods);
 
