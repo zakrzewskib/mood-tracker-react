@@ -96,7 +96,7 @@ const MoodForm = (props) => {
         <textarea
           name="comment"
           id="comment"
-          cols="35"
+          cols="33"
           rows="1"
           placeholder="Add comment about your day (optional)"
           onChange={commentChangeHandler}

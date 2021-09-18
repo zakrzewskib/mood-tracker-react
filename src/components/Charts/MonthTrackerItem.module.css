@@ -6,6 +6,10 @@
   margin: 0 -1px -1px 0;
 }
 
+.month-tracker-item {
+  cursor: pointer;
+}
+
 .day-number {
   margin-left: 0.8rem;
   font-size: 1.6rem;
