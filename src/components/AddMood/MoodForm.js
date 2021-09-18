@@ -7,9 +7,11 @@ import ErrorModal from '../UI/ErrorModal';
 const MoodForm = (props) => {
   const [error, setError] = useState();
   const [dates, setDates] = useState([]);
+  const [replace, setReplace] = useState(true);
 
   const errorHandler = (option) => {
     setError(null);
+    setReplace(option);
   };
 
   const defaultOption = '🙂';
@@ -23,8 +25,6 @@ const MoodForm = (props) => {
   const [enteredComment, setEnteredComment] = useState('');
 
   const setSameDateError = (mood) => {
-    console.log(mood.date);
-    console.log(dates);
     if (
       dates.filter((e) => e.toISOString() === mood.date.toISOString()).length >
       0
