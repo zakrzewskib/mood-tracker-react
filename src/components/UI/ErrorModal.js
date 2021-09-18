@@ -4,16 +4,12 @@ import Button from './Button';
 
 const ErrorModal = (props) => {
   const confirm = () => {
-    props.onConfirm(true);
-  };
-
-  const cancel = () => {
-    props.onConfirm(false);
+    props.onConfirm();
   };
 
   return (
     <div>
-      <div className={classes.backdrop}></div>
+      <div className={classes.backdrop} onClick={confirm}></div>
       <div className={classes.modal}>
         <header className={classes.header}>
           <h2>{props.title}</h2>
@@ -23,8 +19,7 @@ const ErrorModal = (props) => {
           <p>{props.message}</p>
         </div>
         <footer className={classes.actions}>
-          <Button onClick={confirm}>Yes</Button>
-          <Button onClick={cancel}>No</Button>
+          <Button onClick={confirm}>Okay</Button>
         </footer>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import classes from './MoodForm.module.css';
 import Button from '../UI/Button';
@@ -7,11 +7,9 @@ import ErrorModal from '../UI/ErrorModal';
 const MoodForm = (props) => {
   const [error, setError] = useState();
   const [dates, setDates] = useState([]);
-  const [replace, setReplace] = useState(true);
 
-  const errorHandler = (option) => {
+  const errorHandler = () => {
     setError(null);
-    setReplace(option);
   };
 
   const defaultOption = '🙂';
@@ -37,49 +35,29 @@ const MoodForm = (props) => {
 
     setDates((prevDates) => [...prevDates, mood.date]);
 
-    useEffect(() => {
+    if (
+      dates.filter((e) => e.toISOString() === mood.date.toISOString()).length >
+      0
+    ) {
       if (
-        dates.filter((e) => e.toISOString() === mood.date.toISOString())
-          .length > 0
+        window.confirm(
+          'You already defined mood in that day! Do you want to replace mood in that day?'
+        )
       ) {
         setError({
-          title: 'You already defined mood in that day!',
-          message: 'Do you want to replace mood in that day?',
+          title: 'You decided to replace mood at:',
+          message: `${
+            mood.date.getMonth() + 1
+          } ${mood.date.getDate()} ${mood.date.getFullYear()}`,
         });
+
+        setEnteredComment('');
+        props.onSaveNewMood(mood, true);
       }
-
-      console.log(error);
-    }, [error]);
-
-    // if (
-    //   dates.filter((e) => e.toISOString() === mood.date.toISOString()).length >
-    //   0
-    // ) {
-    //   setError({
-    //     title: 'You already defined mood in that day!',
-    //     message: 'Do you want to replace mood in that day?',
-    //   });
-
-    //   // if (
-    //   //   window.confirm(
-    //   //     'You already defined mood in that day! Do you want to replace mood in that day?'
-    //   //   )
-    //   // ) {
-    //   //   setEnteredComment('');
-    //   //   props.onSaveNewMood(mood);
-    //   // }
-    // } else {
-    //   setError({
-    //     title: 'You already defined mood in that day!',
-    //     message: 'Do you want to replace mood in that day?',
-    //   });
-    //   setEnteredComment('');
-    //   props.onSaveNewMood(mood);
-    // }
-
-    useEffect(() => {
-      console.log(error);
-    }, [error]);
+    } else {
+      setEnteredComment('');
+      props.onSaveNewMood(mood, false);
+    }
   };
 
   const dateChangeHandler = (event) => {
