@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import MainHeader from './components/UI/MainHeader';
 import Moods from './components/Moods/Moods';
 import NewMood from './components/AddMood/NewMood';
-
+import ErrorModal from './components/UI/ErrorModal';
 import MonthTracker from './components/Charts/MonthTracker';
 
 const App = () => {
+  const [error, setError] = useState();
+
   const sampleMoodsData = [];
 
   const defineStartedMoodsSeptember2021 = () => {
@@ -38,12 +40,17 @@ const App = () => {
 
   const [moodsForTracker, setMoodsForTracker] = useState(starterMoods);
 
-  const checkIfEnteredSameDate = (mood) => {
+  const setSameDateError = (mood) => {
     if (
       moods.filter((e) => e.date.toISOString() === mood.date.toISOString())
         .length > 0
     ) {
       console.log('Do you want to replace mood in that day?');
+
+      setError({
+        title: 'You already defined mood in that day',
+        message: 'Do you want to replace mood in that day?',
+      });
     }
   };
 
@@ -67,7 +74,7 @@ const App = () => {
   };
 
   const addNewMoodHandler = (mood) => {
-    checkIfEnteredSameDate(mood);
+    setSameDateError(mood);
 
     setMoods((prevMoods) => [mood, ...prevMoods]);
     setMoods((prevMoods) =>
@@ -79,6 +86,12 @@ const App = () => {
 
   return (
     <div>
+      {/* {error && <ErrorModal title={error.title} message={error.message} />} */}
+      <ErrorModal
+        title="You already defined mood in that day!"
+        message="Do you want to replace mood in that day?"
+      />
+
       <MainHeader />
 
       <div className="outside-container">
