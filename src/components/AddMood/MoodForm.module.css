@@ -42,3 +42,7 @@
 .new-mood-form-section:last-child {
   margin-bottom: 3.2rem;
 }
+
+.new-mood-main-form *:focus {
+  outline: 3px solid #d598a0;
+}
