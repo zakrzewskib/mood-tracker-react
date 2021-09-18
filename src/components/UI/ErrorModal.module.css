@@ -6,6 +6,8 @@
   height: 100vh;
   z-index: 10;
   background: rgba(0, 0, 0, 0.6);
+
+  /* cursor: pointer; */
 }
 
 .modal {
@@ -18,9 +20,10 @@
 
   background-color: #fff;
   border-radius: 0.9rem;
-  padding: 3.2rem;
+  padding: 6.4rem;
 
   z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .header h2 {
@@ -33,4 +36,13 @@
   font-size: 2rem;
   padding: 3.2rem;
   font-style: italic;
+}
+
+.actions {
+  display: flex;
+  gap: 0.8rem;
+
+  justify-content: center;
+
+  font-size: 2rem;
 }

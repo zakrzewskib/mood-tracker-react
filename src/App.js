@@ -8,6 +8,7 @@ import MonthTracker from './components/Charts/MonthTracker';
 
 const App = () => {
   const [error, setError] = useState();
+  const [replaceTheSameDate, setReplaceTheSameDate] = useState(true);
 
   const sampleMoodsData = [];
 
@@ -48,7 +49,7 @@ const App = () => {
       console.log('Do you want to replace mood in that day?');
 
       setError({
-        title: 'You already defined mood in that day',
+        title: 'You already defined mood in that day!',
         message: 'Do you want to replace mood in that day?',
       });
     }
@@ -76,21 +77,31 @@ const App = () => {
   const addNewMoodHandler = (mood) => {
     setSameDateError(mood);
 
-    setMoods((prevMoods) => [mood, ...prevMoods]);
-    setMoods((prevMoods) =>
-      prevMoods.sort((a, b) => a.date.getDate() - b.date.getDate())
-    );
+    if (replaceTheSameDate) {
+      setMoods((prevMoods) => [mood, ...prevMoods]);
+      setMoods((prevMoods) =>
+        prevMoods.sort((a, b) => a.date.getDate() - b.date.getDate())
+      );
 
-    changeColorInTracker(mood);
+      changeColorInTracker(mood);
+    }
+  };
+
+  const errorHandler = (option) => {
+    setError(null);
+    setReplaceTheSameDate(option);
+    console.log(replaceTheSameDate);
   };
 
   return (
     <div>
-      {/* {error && <ErrorModal title={error.title} message={error.message} />} */}
-      <ErrorModal
-        title="You already defined mood in that day!"
-        message="Do you want to replace mood in that day?"
-      />
+      {error && (
+        <ErrorModal
+          title={error.title}
+          message={error.message}
+          onConfirm={errorHandler}
+        />
+      )}
 
       <MainHeader />
 
