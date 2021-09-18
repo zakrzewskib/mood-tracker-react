@@ -69,7 +69,10 @@ const App = () => {
   const addNewMoodHandler = (mood) => {
     checkIfEnteredSameDate(mood);
 
-    setMoods((prevMoods) => [...prevMoods, mood]);
+    setMoods((prevMoods) => [mood, ...prevMoods]);
+    setMoods((prevMoods) =>
+      prevMoods.sort((a, b) => a.date.getDate() - b.date.getDate())
+    );
 
     changeColorInTracker(mood);
   };
