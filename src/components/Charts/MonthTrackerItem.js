@@ -2,7 +2,7 @@ import classes from './MonthTrackerItem.module.css';
 
 const MonthTrackerItem = (props) => {
   const addMood = () => {
-    console.log(props.number);
+    props.addMoodWithItem(props.number);
   };
 
   return (

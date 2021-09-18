@@ -3,6 +3,10 @@ import classes from './MonthTracker.module.css';
 import MonthTrackerItem from './MonthTrackerItem';
 
 const MonthTracker = (props) => {
+  const addMoodWithItemHandler = (number) => {
+    props.addMoodWithItem(number);
+  };
+
   return (
     <div>
       <h2 className={classes['month-header']}>
@@ -23,6 +27,7 @@ const MonthTracker = (props) => {
             key={mood.id}
             mood={mood.mood}
             number={mood.dayNumber}
+            addMoodWithItem={addMoodWithItemHandler}
           />
         ))}
       </div>

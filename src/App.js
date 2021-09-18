@@ -74,6 +74,17 @@ const App = () => {
     changeColorInTracker(mood);
   };
 
+  const addMoodWithItemHandler = (number) => {
+    const mood = {
+      mood: '🙂',
+      date: new Date(),
+      comment: '',
+      color: '🙂',
+      id: Math.random().toString(),
+    };
+    addNewMoodHandler(mood, false);
+  };
+
   return (
     <div>
       <MainHeader />
@@ -85,7 +96,10 @@ const App = () => {
           <Moods items={moods} />
         </div>
 
-        <MonthTracker moods={moodsForTracker} />
+        <MonthTracker
+          moods={moodsForTracker}
+          addMoodWithItem={addMoodWithItemHandler}
+        />
       </div>
     </div>
   );
