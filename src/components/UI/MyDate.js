@@ -1,4 +1,4 @@
-import classes from './Date.module.css';
+import classes from './MyDate.module.css';
 
 const Date = (props) => {
   const month = props.date.toLocaleString('en-US', { month: 'long' });
