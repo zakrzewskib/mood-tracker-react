@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import classes from './MoodForm.module.css';
 import Button from '../UI/Button';
@@ -24,23 +24,7 @@ const MoodForm = (props) => {
   const [enteredDate, setEnteredDate] = useState(date);
   const [enteredComment, setEnteredComment] = useState('');
 
-  const setSameDateError = (mood) => {
-    if (
-      dates.filter((e) => e.toISOString() === mood.date.toISOString()).length >
-      0
-    ) {
-      // setError({
-      //   title: 'You already defined mood in that day!',
-      //   message: 'Do you want to replace mood in that day?',
-      // });
-
-      if (window.confirm('Press a button!')) {
-        setReplace(false);
-      }
-    }
-  };
-
-  const submitHandler = (event) => {
+  const SubmitHandler = (event) => {
     event.preventDefault();
 
     const mood = {
@@ -53,27 +37,49 @@ const MoodForm = (props) => {
 
     setDates((prevDates) => [...prevDates, mood.date]);
 
-    if (
-      dates.filter((e) => e.toISOString() === mood.date.toISOString()).length >
-      0
-    ) {
-      // setError({
-      //   title: 'You already defined mood in that day!',
-      //   message: 'Do you want to replace mood in that day?',
-      // });
-
+    useEffect(() => {
       if (
-        window.confirm(
-          'You already defined mood in that day! Do you want to replace mood in that day?'
-        )
+        dates.filter((e) => e.toISOString() === mood.date.toISOString())
+          .length > 0
       ) {
-        setEnteredComment('');
-        props.onSaveNewMood(mood);
+        setError({
+          title: 'You already defined mood in that day!',
+          message: 'Do you want to replace mood in that day?',
+        });
       }
-    } else {
-      setEnteredComment('');
-      props.onSaveNewMood(mood);
-    }
+
+      console.log(error);
+    }, [error]);
+
+    // if (
+    //   dates.filter((e) => e.toISOString() === mood.date.toISOString()).length >
+    //   0
+    // ) {
+    //   setError({
+    //     title: 'You already defined mood in that day!',
+    //     message: 'Do you want to replace mood in that day?',
+    //   });
+
+    //   // if (
+    //   //   window.confirm(
+    //   //     'You already defined mood in that day! Do you want to replace mood in that day?'
+    //   //   )
+    //   // ) {
+    //   //   setEnteredComment('');
+    //   //   props.onSaveNewMood(mood);
+    //   // }
+    // } else {
+    //   setError({
+    //     title: 'You already defined mood in that day!',
+    //     message: 'Do you want to replace mood in that day?',
+    //   });
+    //   setEnteredComment('');
+    //   props.onSaveNewMood(mood);
+    // }
+
+    useEffect(() => {
+      console.log(error);
+    }, [error]);
   };
 
   const dateChangeHandler = (event) => {
@@ -101,7 +107,7 @@ const MoodForm = (props) => {
       )}
 
       <form
-        onSubmit={submitHandler}
+        onSubmit={SubmitHandler}
         className={`${classes['new-mood-main-form']} container`}
       >
         <div className={classes['new-mood-form-section']}>
