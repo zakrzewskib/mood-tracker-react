@@ -41,7 +41,4 @@
 
 .new-mood-form-section:last-child {
   margin-bottom: 3.2rem;
-
-  display: flex;
-  justify-content: center;
 }
