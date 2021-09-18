@@ -1,8 +1,8 @@
 import MoodForm from './MoodForm';
 
 const NewMood = (props) => {
-  const saveNewMoodHandler = (mood) => {
-    props.onAddNewMood(mood);
+  const saveNewMoodHandler = (mood, replaced) => {
+    props.onAddNewMood(mood, replaced);
   };
 
   return <MoodForm onSaveNewMood={saveNewMoodHandler} />;

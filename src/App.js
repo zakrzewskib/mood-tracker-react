@@ -56,8 +56,13 @@ const App = () => {
     setMoodsForTracker(updatedMoods);
   };
 
-  const addNewMoodHandler = (mood) => {
-    setMoods((prevMoods) => [mood, ...prevMoods]);
+  const addNewMoodHandler = (mood, replaced) => {
+    setMoods((prevMoods) => [...prevMoods, mood]);
+
+    if (replaced) {
+      setMoods((prevMoods) => prevMoods.splice(0, 1));
+    }
+
     setMoods((prevMoods) =>
       prevMoods.sort((a, b) => a.date.getDate() - b.date.getDate())
     );
