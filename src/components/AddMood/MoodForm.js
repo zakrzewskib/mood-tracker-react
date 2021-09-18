@@ -29,10 +29,14 @@ const MoodForm = (props) => {
       dates.filter((e) => e.toISOString() === mood.date.toISOString()).length >
       0
     ) {
-      setError({
-        title: 'You already defined mood in that day!',
-        message: 'Do you want to replace mood in that day?',
-      });
+      // setError({
+      //   title: 'You already defined mood in that day!',
+      //   message: 'Do you want to replace mood in that day?',
+      // });
+
+      if (window.confirm('Press a button!')) {
+        setReplace(false);
+      }
     }
   };
 
@@ -48,11 +52,28 @@ const MoodForm = (props) => {
     };
 
     setDates((prevDates) => [...prevDates, mood.date]);
-    setSameDateError(mood);
 
-    setEnteredComment('');
+    if (
+      dates.filter((e) => e.toISOString() === mood.date.toISOString()).length >
+      0
+    ) {
+      // setError({
+      //   title: 'You already defined mood in that day!',
+      //   message: 'Do you want to replace mood in that day?',
+      // });
 
-    props.onSaveNewMood(mood);
+      if (
+        window.confirm(
+          'You already defined mood in that day! Do you want to replace mood in that day?'
+        )
+      ) {
+        setEnteredComment('');
+        props.onSaveNewMood(mood);
+      }
+    } else {
+      setEnteredComment('');
+      props.onSaveNewMood(mood);
+    }
   };
 
   const dateChangeHandler = (event) => {
