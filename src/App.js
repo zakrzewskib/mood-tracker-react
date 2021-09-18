@@ -57,11 +57,15 @@ const App = () => {
   };
 
   const addNewMoodHandler = (mood, replaced) => {
-    setMoods((prevMoods) => [...prevMoods, mood]);
-
     if (replaced) {
-      setMoods((prevMoods) => prevMoods.splice(0, 1));
+      setMoods((prevMoods) => {
+        return prevMoods.filter(
+          (item) => item.date.toISOString() !== mood.date.toISOString()
+        );
+      });
     }
+
+    setMoods((prevMoods) => [...prevMoods, mood]);
 
     setMoods((prevMoods) =>
       prevMoods.sort((a, b) => a.date.getDate() - b.date.getDate())
