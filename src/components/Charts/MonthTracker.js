@@ -26,7 +26,7 @@ const MonthTracker = (props) => {
           <MonthTrackerItem
             key={mood.id}
             mood={mood.mood}
-            number={mood.dayNumber}
+            number={mood.date === '' ? '' : mood.date.getDate()}
             addMoodWithItem={addMoodWithItemHandler}
           />
         ))}
