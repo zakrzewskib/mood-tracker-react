@@ -3,7 +3,7 @@
 ### Being a beginner at React
 * After learning basics of React I created my first 'typical' 'user submits form and new item shows on screen' app.
 * Before starting the project I learned:
-  * my first React hook - useState - to call component function again when we change our (variable) state,
+  * my first React hook - useState - to call component function again when we change our (variable) state to show it on screen again with new value.
  
 ### Create React App
 * This app was created with <a href="https://github.com/facebook/create-react-app">create-react-app</a>.
