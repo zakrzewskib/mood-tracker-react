@@ -10,7 +10,7 @@
 
 ### CSS
 * I wanted to practice some CSS, but I did not expect that I would be so much work to make my app look nice.
-* So good thing to consider is to use **Material UI** and **Bootstrap**.
+* So maybe I should consider using **Material UI** and **Bootstrap** if I want to only focus on React.
 
 ### About and TO DO
 * Besides begin a typical beginner React app I added showing moods that user submitted on the calendar.
