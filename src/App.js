@@ -57,6 +57,7 @@ const App = () => {
   };
 
   const addNewMoodHandler = (mood, replaced) => {
+    console.log(replaced);
     if (replaced) {
       setMoods((prevMoods) => {
         return prevMoods.filter(
@@ -74,15 +75,20 @@ const App = () => {
     changeColorInTracker(mood);
   };
 
-  const addMoodWithItemHandler = (number) => {
+  const addMoodWithItemHandler = (date) => {
     const mood = {
       mood: '🙂',
-      date: new Date(),
+      date: new Date(date),
       comment: '',
       color: '🙂',
       id: Math.random().toString(),
     };
-    addNewMoodHandler(mood, false);
+
+    const found = moods.find(
+      (item) => item.date.getDate() === mood.date.getDate()
+    );
+
+    addNewMoodHandler(mood, found ? true : false);
   };
 
   return (

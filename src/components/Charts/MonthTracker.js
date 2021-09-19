@@ -3,8 +3,8 @@ import classes from './MonthTracker.module.css';
 import MonthTrackerItem from './MonthTrackerItem';
 
 const MonthTracker = (props) => {
-  const addMoodWithItemHandler = (number) => {
-    props.addMoodWithItem(number);
+  const addMoodWithItemHandler = (date) => {
+    props.addMoodWithItem(date);
   };
 
   return (
@@ -27,6 +27,7 @@ const MonthTracker = (props) => {
             key={mood.id}
             mood={mood.mood}
             number={mood.date === '' ? '' : mood.date.getDate()}
+            date={mood.date}
             addMoodWithItem={addMoodWithItemHandler}
           />
         ))}
