@@ -57,7 +57,6 @@ const App = () => {
   };
 
   const addNewMoodHandler = (mood, replaced) => {
-    console.log(replaced);
     if (replaced) {
       setMoods((prevMoods) => {
         return prevMoods.filter(
@@ -88,7 +87,7 @@ const App = () => {
       (item) => item.date.getDate() === mood.date.getDate()
     );
 
-    addNewMoodHandler(mood, found ? true : false);
+    addNewMoodHandler(mood, found);
   };
 
   return (
