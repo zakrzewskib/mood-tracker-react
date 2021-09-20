@@ -1,12 +1,16 @@
 # <img src="https://github.com/zakrzewskib/mood-tracker-react/blob/master/readme-images/logo.PNG" width="400px">
 
-### Being a beginner at React
+### Learning React
 * After learning basics of React I created my first 'typical' 'user submits form and new item shows on screen' app.
 * Before starting the project I learned:
-  * my first React hook - useState - to call component function again when we change our (variable) state to show it on screen again with new value.
+  * Instead of imperative JavaScript code, React uses declarative code - you say what you want to be done **instead of** coding each step of what is to be done.
+  * My first React hook - useState - to call component function again when we change our (variable) state to show it on screen again with the new value.
+  * You can lift the state up - for example you can execute the parent's function via props.
+  * You can use CSS Modules - files name <ComponentName>.module.css - classes are changed to be unique - styles are scoped to the component we import our file into. I still wanted some styles to be global - there are defined in index.css.
  
 ### Create React App
 * This app was created with <a href="https://github.com/facebook/create-react-app">create-react-app</a>.
+* Thus I do not ``` import React from 'react'; ``` in every component because JSX under the hood is transformed into React.createElement().
 
 ### CSS
 * I did not expect that it would be so much work to make my app look nice. It was nice doing some CSS, but maybe I should consider using **Material UI** and **Bootstrap** if I want to focus only on React.
