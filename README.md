@@ -26,6 +26,6 @@
 * There are many features that can be added, but I think that I should learn more things about React first.
 
 ### Preview
-<a href="https://codesandbox.io/s/github/zakrzewskib/mood-tracker-react">CodeSandbox</a>
+* <a href="https://codesandbox.io/s/github/zakrzewskib/mood-tracker-react">CodeSandbox</a>
 <img src="https://github.com/zakrzewskib/mood-tracker-react/blob/master/readme-images/preview.gif">
 
