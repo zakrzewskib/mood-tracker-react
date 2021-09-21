@@ -2,6 +2,8 @@ import classes from './MonthTrackerItem.module.css';
 
 const MonthTrackerItem = (props) => {
   const addMood = () => {
+    // User should select mood here
+
     props.addMoodWithItem(props.date);
   };
 
