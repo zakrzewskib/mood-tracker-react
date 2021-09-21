@@ -22,6 +22,7 @@ const MoodForm = (props) => {
   };
 
   const SubmitHandler = (event) => {
+    let replaced;
     event.preventDefault();
 
     const mood = {
@@ -45,19 +46,17 @@ const MoodForm = (props) => {
       ) {
         setError({
           title: 'You decided to replace mood at:',
-          // message: `${
-          //   mood.date.getMonth() + 1
-          // } ${mood.date.getDate()} ${mood.date.getFullYear()}`,
           date: mood.date,
         });
 
-        setEnteredComment('');
-        props.onSaveNewMood(mood, true);
+        replaced = true;
       }
     } else {
-      setEnteredComment('');
-      props.onSaveNewMood(mood, false);
+      replaced = false;
     }
+
+    setEnteredComment('');
+    props.onSaveNewMood(mood, replaced);
   };
 
   const dateChangeHandler = (event) => {
