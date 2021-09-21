@@ -5,22 +5,21 @@ import Button from '../UI/Button';
 import ErrorModal from '../UI/ErrorModal';
 
 const MoodForm = (props) => {
+  const defaultOption = '🙂';
+  const date = new Date().toISOString().substr(0, 10);
+
+  const [enteredMood, setEnteredMood] = useState(defaultOption);
+  const [enteredDate, setEnteredDate] = useState(date);
+  const [enteredComment, setEnteredComment] = useState('');
+
+  const [selectedOptionClass, setSelectedOptionClass] = useState(defaultOption);
+
   const [error, setError] = useState();
   const [dates, setDates] = useState([]);
 
   const errorHandler = () => {
     setError(null);
   };
-
-  const defaultOption = '🙂';
-  const date = new Date().toISOString().substr(0, 10);
-
-  const [enteredMood, setEnteredMood] = useState(defaultOption);
-
-  const [selectedOptionClass, setSelectedOptionClass] = useState(defaultOption);
-
-  const [enteredDate, setEnteredDate] = useState(date);
-  const [enteredComment, setEnteredComment] = useState('');
 
   const SubmitHandler = (event) => {
     event.preventDefault();
