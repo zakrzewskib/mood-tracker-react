@@ -1,4 +1,4 @@
-# <img src="https://github.com/zakrzewskib/mood-tracker-react/blob/master/readme-images/logo.PNG" width="400px">
+<!-- # <img src="https://github.com/zakrzewskib/mood-tracker-react/blob/master/readme-images/logo.PNG" width="400px">
 
 ### Learning React
 * After learning basics of React I created my first 'typical' 'user submits form and new item shows on screen' app.
@@ -29,3 +29,4 @@
 * <a href="https://codesandbox.io/s/github/zakrzewskib/mood-tracker-react">CodeSandbox</a>
 <img src="https://github.com/zakrzewskib/mood-tracker-react/blob/master/readme-images/preview.gif">
 
+ -->
